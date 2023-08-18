@@ -14,12 +14,3 @@ app.get('/transactions', transactionsController.getAll);
 app.post('/transactions', TransactionsMiddleware.validateCreateBody, transactionsController.createTransaction);
 app.get('/balance/:year/:month', transactionsController.calculateMonthBalance);
 app.delete('/transactions/:id', transactionsController.deleteTransaction);
-
-// const path = require('path');
-// app.get('/', function(req, res){
-//     res.sendFile(path.join(__dirname+'/index.html'));
-// });
-
-// app.get('/transaction', function(req, res){
-//     res.sendFile(path.join(__dirname+'/transaction.html'));
-// });
