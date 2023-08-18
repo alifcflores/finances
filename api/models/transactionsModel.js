@@ -6,14 +6,12 @@ const getAll = async () =>{
     return allTransactions;
 };
 
-
 const createTransaction = async (transaction) =>{
-    const {description, installments, recipe_or_expense} = transaction;
-    const createATransaction = await connection.execute('INSERT INTO transactions(description, installments, recipe_or_expense, created_at, updated_at) VALUES (?, ?, ?, ?, ?)', [description, installments, recipe_or_expense, new Date(), new Date()]);
+    const {user_id, description, installments, recipe_or_expense} = transaction;
+    const createATransaction = await connection.execute('INSERT INTO transactions(user_id, description, installments, recipe_or_expense) VALUES (?, ?, ?, ?)', [user_id, description, installments, recipe_or_expense]);
     createInstallments(transaction);  
     return createATransaction;
 }
-
 
 const createInstallments = async(transaction) => {
     const {description, value, first_due_date, status, installments, recipe_or_expense} = transaction;
@@ -21,8 +19,8 @@ const createInstallments = async(transaction) => {
     let dueDate;   
     for (let installment = 1; installment <= installments; installment++)  {
         first_due_date === undefined || first_due_date === '' || first_due_date === null ?  dueDate = null : dueDate = moment(first_due_date).add(installment - 1, 'month').format("YYYY-MM-DD");
-        const query = 'INSERT INTO installments(transaction_id, installment, value, due_date, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)'
-        await connection.execute(query, [getLastTransaction[0].id, installment, value,  dueDate, status, new Date(), new Date()]);
+        const query = 'INSERT INTO installments(transaction_id, installment, value, due_date, status) VALUES (?, ?, ?, ?, ?)'
+        await connection.execute(query, [getLastTransaction[0].id, installment, value, dueDate, status]);
     }
 }
 
