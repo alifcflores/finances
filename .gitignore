@@ -1,3 +1,6 @@
 /index.html
 /transaction.html
 /api/node_modules
+.env
+.env.dev
+.env.*
