@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Finances</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+  <body>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Incluir Transação Manual:</h2>
+      </div>
+    </div>
+    <form class="col-md-6">
+      <div class="col-md-6">
+          <label for="descricao" class="form-label">Descrição</label>
+          <input type="text" class="form-control" id="descricao" placeholder="Tênis comprado na Amazon">
+      </div>
+
+      <div class="col-md-6">
+        <label for="valor" class="form-label">Valor</label>
+        <input type="text" class="form-control" id="value" placeholder="450,00">
+      </div>
+
+      <div class="col-md-3">
+        <label for="parcelas" class="form-label">Quantidade de Parcelas</label>
+        <select class="form-select" aria-label="Quantidade de Parcelas">
+          <option selected value="1" >Única</option>
+          <option value="2">Duas</option>
+          <option value="3">Três</option>
+          <option value="4">Quatro</option>
+          <option value="5">Cinco</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+        <label class="btn btn-outline-success" for="success-outlined">Receita</label>
+        
+        <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+        <label class="btn btn-outline-danger" for="danger-outlined">Despesa</label>
+      </div>
+      
+      <div class="col-3">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
+    </form> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
